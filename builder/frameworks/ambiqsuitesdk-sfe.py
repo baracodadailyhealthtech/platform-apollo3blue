@@ -42,6 +42,7 @@ UTILS_DIR             = join(FRAMEWORK_DIR, "utils")
 MCU_DIR               = join(FRAMEWORK_DIR, "mcu", board.get("build.part"))
 TOOLS_DIR             = join(FRAMEWORK_DIR, "boards_sfe", "common", "tools_sfe")
 BOOTLOADER_DIR        = join(FRAMEWORK_DIR, "bootloader")
+MBEDTLS_DIR           = join(FRAMEWORK_DIR, "third_party", "mbedtls-2.4.2")
 
 system_type = env.subst("$SYSTEM_TYPE")
 env.Replace(ASB_UPLOADER=join(FRAMEWORK_DIR, "boards_sfe", "common", "tools_sfe", "asb", "dist", system_type, "asb"))
@@ -77,6 +78,7 @@ env.Append(
         "{}/Include".format(ARM_CMSIS_DIR),
         "{}/Include".format(AMBIQMICRO_CMSIS_DIR),
         "{}/bsp".format(VARIANT_DIR),
+        "{}/include".format(MBEDTLS_DIR),
         DEVICES_DIR,
         UTILS_DIR,
         BOOTLOADER_DIR,
@@ -141,6 +143,10 @@ ambiq_libraries=[
     dict(
         src_path=join(FRAMEWORK_DIR, "third_party", "uecc"),
         manifest_path=join(platform.PlatformPath, 'extra', 'ambiqsdk-sfe', 'libraries', "third_party", "uECC", "library.json")
+    ),
+    dict(
+        src_path=join(FRAMEWORK_DIR, "third_party", "mbedtls-2.4.2"),
+        manifest_path=join(platform.PlatformPath, 'extra', 'ambiqsdk-sfe', 'libraries', "third_party", "mbedtls-2.4.2", "library.json")
     ),
     dict(
         src_path = join(FRAMEWORK_DIR, "bootloader"),

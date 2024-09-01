@@ -1,0 +1,19 @@
+{
+    "name": "mbedtls",
+    "version": "2.4.2",
+    "description": "An open source, portable, easy to use, readable and flexible TLS library, and reference implementation of the PSA Cryptography API.",
+    "frameworks": [
+        "ambiqsdk-sfe"
+    ],
+    "license": "Apache-2.0",
+    "build": {
+        "flags": [],
+        "libArchive": false,
+        "srcDir": "%(FRAMEWORK_DIR)s/third_party/mbedtls-2.4.2/library",
+        "includeDir": "%(FRAMEWORK_DIR)s/third_party/mbedtls-2.4.2/include",
+        "srcFilter": [
+            "+<*.c>",
+            "+<*.h>"
+        ]
+    }
+}
